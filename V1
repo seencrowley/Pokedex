@@ -1,0 +1,490 @@
+using Microsoft.VisualBasic;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Transactions;
+
+namespace ZiggyBinx
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a number 1-150 to see which original Pokemon that is: ");
+            int entrynum = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("That Pokemon is " + GetPokemon(entrynum));
+        }
+        
+        static string GetPokemon(int PokemonNum)
+        {
+            string PokemonName;
+
+            switch (PokemonNum)
+            {
+                case 1:
+                    PokemonName = "Bulbasaur";
+                    break;
+                case 2:
+                    PokemonName = "Ivysaur";
+                    break;
+                case 3:
+                    PokemonName = "Venusaur";
+                    break;
+                case 4:
+                    PokemonName = "Charmander";
+                    break;
+                case 5:
+                    PokemonName = "Charmeleon";
+                    break;
+                case 6:
+                    PokemonName = "Charizard";
+                    break; 
+                case 7:
+                    PokemonName = "Squirtle";
+                    break;
+                case 8:
+                    PokemonName = "Wartortle";
+                    break;
+                case 9:
+                    PokemonName = "Blastoise";
+                    break;
+                case 10:
+                    PokemonName = "Caterpie";
+                    break;
+                case 11:
+                    PokemonName = "Metapod";
+                    break;
+                case 12:
+                    PokemonName = "Butterfree";
+                    break;
+                case 13:
+                    PokemonName = "Weedle";
+                    break;
+                case 14:
+                    PokemonName = "Kakuna";
+                    break;
+                case 15:
+                    PokemonName = "Beedrill";
+                    break;
+                case 16:
+                    PokemonName = "Pidgey";
+                    break;
+                case 17:
+                    PokemonName = "Pidgeotto";
+                    break;
+                case 18:
+                    PokemonName = "Pidgeot";
+                    break;
+                case 19:
+                    PokemonName = "Rattata";
+                    break;
+                case 20:
+                    PokemonName = "Raticate";
+                    break;
+                case 21:
+                    PokemonName = "Spearow";
+                    break;
+                case 22:
+                    PokemonName = "Fearow";
+                    break;
+                case 23:
+                    PokemonName = "Ekans";
+                    break;
+                case 24:
+                    PokemonName = "Arbok";
+                    break;
+                case 25:
+                    PokemonName = "Pikachu";
+                    break;
+                case 26:
+                    PokemonName = "Raichu";
+                    break;
+                case 27:
+                    PokemonName = "Sandshrew";
+                    break;
+                case 28:
+                    PokemonName = "Sandslash";
+                    break;
+                case 29:
+                    PokemonName = "Nidoran (female)";
+                    break;
+                case 30:
+                    PokemonName = "Nidorina";
+                    break;
+                case 31:
+                    PokemonName = "Nidoqueen";
+                    break;
+                case 32:
+                    PokemonName = "Nidoran (male)";
+                    break;
+                case 33:
+                    PokemonName = "Nidorino";
+                    break;
+                case 34:
+                    PokemonName = "Nidoking";
+                    break;
+                case 35:
+                    PokemonName = "CLefairy";
+                    break;
+                case 36:
+                    PokemonName = "Clefable";
+                    break;
+                case 37:
+                    PokemonName = "Vulpix";
+                    break;
+                case 38:
+                    PokemonName = "Ninetales";
+                    break;
+                case 39:
+                    PokemonName = "Jigglypuff";
+                    break;
+                case 40:
+                    PokemonName = "Wigglytuff";
+                    break;
+                case 41:
+                    PokemonName = "Zubat";
+                    break;
+                case 42:
+                    PokemonName = "Golbat";
+                    break;
+                case 43:
+                    PokemonName = "Oddish";
+                    break;
+                case 44:
+                    PokemonName = "Gloom";
+                    break;
+                case 45:
+                    PokemonName = "Vileplume";
+                    break;
+                case 46:
+                    PokemonName = "Paras";
+                    break;
+                case 47:
+                    PokemonName = "Parasect";
+                    break;
+                case 48:
+                    PokemonName = "Venonat";
+                    break;
+                case 49:
+                    PokemonName = "Venomoth";
+                    break;
+                case 50:
+                    PokemonName = "Diglett";
+                    break;
+                case 51:
+                    PokemonName = "Dugtrio";
+                    break;
+                case 52:
+                    PokemonName = "Meowth";
+                    break;
+                case 53:
+                    PokemonName = "Persian";
+                    break;
+                case 54:
+                    PokemonName = "Psyduck";
+                    break;
+                case 55:
+                    PokemonName = "Golduck";
+                    break;
+                case 56:
+                    PokemonName = "Mankey";
+                    break;
+                case 57:
+                    PokemonName = "Primeape";
+                    break;
+                case 58:
+                    PokemonName = "Growlithe";
+                    break;
+                case 59:
+                    PokemonName = "Arcanine";
+                    break;
+                case 60:
+                    PokemonName = "Poliwag";
+                    break;
+                case 61:
+                    PokemonName = "Poliwhirl";
+                    break;
+                case 62:
+                    PokemonName = "Poliwrath";
+                    break;
+                case 63:
+                    PokemonName = "Abra";
+                    break;
+                case 64:
+                    PokemonName = "Kadabra";
+                    break;
+                case 65:
+                    PokemonName = "Alakazam";
+                    break;
+                case 66:
+                    PokemonName = "Machop";
+                    break;
+                case 67:
+                    PokemonName = "Machoke";
+                    break;
+                case 68:
+                    PokemonName = "Machamp";
+                    break;
+                case 69:
+                    PokemonName = "Bellsprout";
+                    break;
+                case 70:
+                    PokemonName = "Weepinbell";
+                    break;
+                case 71:
+                    PokemonName = "Victreebel";
+                    break;
+                case 72:
+                    PokemonName = "Tentacool";
+                    break;
+                case 73:
+                    PokemonName = "Tentacruel";
+                    break;
+                case 74:
+                    PokemonName = "Geodude";
+                    break;
+                case 75:
+                    PokemonName = "Graveler";
+                    break;
+                case 76:
+                    PokemonName = "Golem";
+                    break;
+                case 77:
+                    PokemonName = "Ponyta";
+                    break;
+                case 78:
+                    PokemonName = "Rapidash";
+                    break;
+                case 79:
+                    PokemonName = "Slowpoke";
+                    break;
+                case 80:
+                    PokemonName = "Slowbro";
+                    break;
+                case 81:
+                    PokemonName = "Magnemite";
+                    break;
+                case 82:
+                    PokemonName = "Magneton";
+                    break;
+                case 83:
+                    PokemonName = "Farfetch'd";
+                    break;
+                case 84:
+                    PokemonName = "Doduo";
+                    break;
+                case 85:
+                    PokemonName = "Dodrio";
+                    break;
+                case 86:
+                    PokemonName = "Seel";
+                    break;
+                case 87:
+                    PokemonName = "Dewgong";
+                    break;
+                case 88:
+                    PokemonName = "Grimer";
+                    break;
+                case 89:
+                    PokemonName = "Muk";
+                    break;
+                case 90:
+                    PokemonName = "Shellder";
+                    break;
+                case 91:
+                    PokemonName = "Colyster";
+                    break;
+                case 92:
+                    PokemonName = "Gastly";
+                    break;
+                case 93:
+                    PokemonName = "Haunter";
+                    break;
+                case 94:
+                    PokemonName = "Gengar";
+                    break;
+                case 95:
+                    PokemonName = "Onix";
+                    break;
+                case 96:
+                    PokemonName = "Drowzee";
+                    break;
+                case 97:
+                    PokemonName = "Hypno";
+                    break;
+                case 98:
+                    PokemonName = "Krabby";
+                    break;
+                case 99:
+                    PokemonName = "Kingler";
+                    break;
+                case 100:
+                    PokemonName = "Voltorb";
+                    break;
+                case 101:
+                    PokemonName = "Electrode";
+                    break;
+                case 102:
+                    PokemonName = "Exeggcute";
+                    break;
+                case 103:
+                    PokemonName = "Exeggutor";
+                    break;
+                case 104:
+                    PokemonName = "Cubone";
+                    break;
+                case 105:
+                    PokemonName = "Marowak";
+                    break;
+                case 106:
+                    PokemonName = "Hitmonlee";
+                    break;
+                case 107:
+                    PokemonName = "Hitmonchan";
+                    break;
+                case 108:
+                    PokemonName = "Lickitung";
+                    break;
+                case 109:
+                    PokemonName = "Koffing";
+                    break;
+                case 110:
+                    PokemonName = "Weezing";
+                    break;
+                case 111:
+                    PokemonName = "Rhyhorn";
+                    break;
+                case 112:
+                    PokemonName = "Rhydon";
+                    break;
+                case 113:
+                    PokemonName = "Chansey";
+                    break;
+                case 114:
+                    PokemonName = "Tangela";
+                    break;
+                case 115:
+                    PokemonName = "Kangaskhan";
+                    break;
+                case 116:
+                    PokemonName = "Horsea";
+                    break;
+                case 117:
+                    PokemonName = "Seadra";
+                    break;
+                case 118:
+                    PokemonName = "Goldeen";
+                    break;
+                case 119:
+                    PokemonName = "Seaking";
+                    break;
+                case 120:
+                    PokemonName = "Staryu";
+                    break;
+                case 121:
+                    PokemonName = "Starmie";
+                    break;
+                case 122:
+                    PokemonName = "Mr. Mime";
+                    break;
+                case 123:
+                    PokemonName = "Scyther";
+                    break;
+                case 124:
+                    PokemonName = "Jynx";
+                    break;
+                case 125:
+                    PokemonName = "Electabuzz";
+                    break;
+                case 126:
+                    PokemonName = "Magmar";
+                    break;
+                case 127:
+                    PokemonName = "Pinsir";
+                    break;
+                case 128:
+                    PokemonName = "Tauros";
+                    break;
+                case 129:
+                    PokemonName = "Magikarp";
+                    break;
+                case 130:
+                    PokemonName = "Gyarados";
+                    break;
+                case 131:
+                    PokemonName = "Lapras";
+                    break;
+                case 132:
+                    PokemonName = "Ditto";
+                    break;
+                case 133:
+                    PokemonName = "Eevee";
+                    break;
+                case 134:
+                    PokemonName = "Vaporeon";
+                    break;
+                case 135:
+                    PokemonName = "Jolteon";
+                    break;
+                case 136:
+                    PokemonName = "Flareon";
+                    break;
+                case 137:
+                    PokemonName = "Porygon";
+                    break;
+                case 138:
+                    PokemonName = "Omanyte";
+                    break;
+                case 139:
+                    PokemonName = "Omastar";
+                    break;
+                case 140:
+                    PokemonName = "Kabuto";
+                    break;
+                case 141:
+                    PokemonName = "Kabutops";
+                    break;
+                case 142:
+                    PokemonName = "Aerodactyl";
+                    break;
+                case 143:
+                    PokemonName = "Snorlax";
+                    break;
+                case 144:
+                    PokemonName = "Articuno";
+                    break;
+                case 145:
+                    PokemonName = "Zapdos";
+                    break;
+                case 146:
+                    PokemonName = "Moltres";
+                    break;
+                case 147:
+                    PokemonName = "Dratini";
+                    break;
+                case 148:
+                    PokemonName = "Dragonair";
+                    break;
+                case 149:
+                    PokemonName = "Dragonite";
+                    break;
+                case 150:
+                    PokemonName = "Mewtwo";
+                    break;
+
+                default:
+                    PokemonName = "not one of the original 150 Pokemon";
+                    break;
+
+            }
+
+            return PokemonName;
+           
+        }
+
+    }
+}
